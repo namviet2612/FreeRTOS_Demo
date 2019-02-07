@@ -50,3 +50,13 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+#Output folders
+Listings
+Objects
+DebugConfig
+
+# log file
+JLinkLog.txt
+JLinkSettings.ini
+*.scvd
