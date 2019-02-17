@@ -422,9 +422,9 @@
               <FilePath>.\FreeRTOS\portable\RVDS\ARM_CM4F\port.c</FilePath>
             </File>
             <File>
-              <FileName>heap_2.c</FileName>
+              <FileName>heap_4.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\FreeRTOS\portable\MemMang\heap_2.c</FilePath>
+              <FilePath>.\FreeRTOS\portable\MemMang\heap_4.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -450,6 +450,13 @@
         </Group>
         <Group>
           <GroupName>specific</GroupName>
+          <Files>
+            <File>
+              <FileName>mytask.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\mytask.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>

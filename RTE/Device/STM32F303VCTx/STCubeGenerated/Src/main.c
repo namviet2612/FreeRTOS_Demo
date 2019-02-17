@@ -107,9 +107,11 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-	
   /* USER CODE BEGIN 2 */
-
+  xTaskCreate(vTaskLed1,( const char * ) "Task LED 1",configMINIMAL_STACK_SIZE,NULL,mainFLASH_TASK_PRIORITY,( xTaskHandle * ) NULL);
+  xTaskCreate(vTaskLed2,( const char * ) "Task LED 2",configMINIMAL_STACK_SIZE,NULL,mainFLASH_TASK_PRIORITY,( xTaskHandle * ) NULL);
+  xTaskCreate(vTaskLed3,( const char * ) "Task LED 3",configMINIMAL_STACK_SIZE,NULL,mainFLASH_TASK_PRIORITY,( xTaskHandle * ) NULL);
+  vTaskStartScheduler();	
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -117,7 +119,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	HAL_GPIO_WritePin(GPIOE, GPIO_PIN_8|GPIO_PIN_9, GPIO_PIN_SET);
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -170,10 +172,10 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOE_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_8|GPIO_PIN_9, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOE, GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_15, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : PE8 PE9 */
-  GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9;
+  /*Configure GPIO pins : PE8 PE9 PE10 PE15 */
+  GPIO_InitStruct.Pin = GPIO_PIN_8|GPIO_PIN_9|GPIO_PIN_10|GPIO_PIN_15;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
